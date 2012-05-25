@@ -2,8 +2,8 @@ call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
-autocmd vimenter * NERDTree
-autocmd vimenter * wincmd l
+autocmd Vimenter * NERDTree
+autocmd Vimenter * wincmd l
 autocmd WinEnter * call s:IfNoBuffers()
 function! s:IfNoBuffers()
   if exists("t:NERDTreeBufName")
@@ -15,10 +15,15 @@ function! s:IfNoBuffers()
   endif
 endfunction
 nmap <F2> :NERDTreeToggle<CR>
-:colorscheme elflord
+function! SyntaxItem()
+	return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+":colorscheme mine
+:colorscheme ansi_blows 
 :set autochdir
 :set autoindent
 :set autoread
+:set filetype=on
 :set foldmethod=syntax
 :let g:NERDTreeChDirMode=2
 :set guicursor=a:ver25-Cursor/lCursor
@@ -32,5 +37,7 @@ nmap <F2> :NERDTreeToggle<CR>
 :set shiftwidth=4
 :set showcmd
 :set smartindent
+:set splitright
+:set statusline+=%{SyntaxItem()}
 :set tabstop=4
 :syntax enable
