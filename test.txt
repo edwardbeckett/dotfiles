@@ -1,1 +1,1 @@
-This is another vim test
+This is another vim test ... Now I'm adding some text to the example branch.
