@@ -3958,6 +3958,9 @@ endfunction
 "handle the user activating a tree node
 function! s:activateDirNode(node)
     call a:node.activate({'reuse': 1})
+    if (g:NERDTreeChDirMode ==#2)
+    call s:chCwd(a:node)
+    endif
 endfunction
 
 "FUNCTION: s:activateFileNode() {{{2
