@@ -1,1 +1,0 @@
-This is another vim test ... Now I'm adding content to test.txt from the Master branch.
