@@ -11,7 +11,7 @@
 " Vim Configs
 
 	colorscheme mine
-	"set autochdir
+	set autochdir
 	set autoindent
 	set autoread
 	set backspace=indent,eol,start
@@ -53,7 +53,7 @@
 	  if exists("t:NERDTreeBufName")
 		if bufwinnr(t:NERDTreeBufName) != -1
 		  if winnr("$") == 1
-			q
+			q	
 		  endif
 		endif
 	  endif
@@ -78,22 +78,15 @@
 	  call s:CommandCabbr(a:name, a:destination)
 	endfunction
 
-	function ChangeDirectory(dir, ...)
-    
-	let &cdpath = ',' . getcwd() 
-
-	exe "bufdo! " . "cd " . (a:dir)
-
-	let stay = exists("a:1") ? a:1 : 1	
-     	  	  
+	function ChangeDirectory(dir, ...)    
+	  let &cdpath = ',' . getcwd() 
+	  exe "bufdo! " . "cd " . (a:dir)
+	  let stay = exists("a:1") ? a:1 : 1     	  	  
 	  NERDTree  
-
 	  if !stay
 	 	wincmd p 
 	  endif
-
-	wincmd l
-
+	  wincmd l
     endfunction
 	
 	function Touch(file)
@@ -172,7 +165,14 @@
 	autocmd Vimenter * wincmd l
 	autocmd WinEnter * call s:IfNoBuffers()
 	autocmd FocusGained * call s:UpdateNERDTree() 
+
+" Diff Mode
 	
+	if &diff
+		set scrollbind
+		set syncbind
+	endif
+
 " Key Mappings
 
 	nmap <F2> :NERDTreeToggle<CR>
