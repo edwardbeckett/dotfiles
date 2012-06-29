@@ -33,6 +33,7 @@ hi LineNr 	term=bold 		guifg=Yellow guibg=#080808
 hi CursorLine guibg=#171717	
 hi CursorColumn ctermfg=Magenta
 hi Folded	guibg=#171717	guifg=#707070 gui=italic
+hi FoldColumn guibg=#010101 guifg=#707070
 hi NonText	guibg=#010101   guifg=#003366 gui=italic
 hi Visual	guibg=#003366	guifg=Cyan 
 hi Cursor 	guibg=LightCyan	gui=bold
@@ -42,10 +43,32 @@ hi VertSplit gui=italic guibg=#171717	guifg=#003366
 hi Search	gui=bold	guibg=Cyan	guifg=#010101
 hi WarningMsg gui=bold guifg=Red
 hi Field	gui=italic guibg=#171717 guifg=#009900
+
+"hi diffOldFile		diffFile
+"hi diffNewFile		diffFile
+"hi diffFile		Type
+"hi diffOnly		Constant
+"hi diffIdentical	Constant
+"hi diffDiffer		Constant
+"hi diffBDiffer		Constant
+"hi diffIsA		Constant
+"hi diffNoEOL		Constant
+"hi diffCommon		Constant
+hi diffDelete	guibg=#242d42	guifg=Red
+"hi diffText		gui=underline,bold guibg=#242d42 guifg=#EEEE00
+hi diffText		gui=underline guibg=#242d42 guifg=Yellow
+"hi diffChange		guibg=#36648B
+hi diffChange		guibg=#242d42 guifg=#777777
+"hi diffChanged		guibg=#003587
+"hi diffChange		guibg=#181818
+hi diffAdd		guibg=#242d42 guifg=Green
+"hi diffLine		Statement
+"hi diffSubname		PreProc
+"hi diffComment		Comment
+
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
-"hi link String	Constant
-
+" hi link String	Constant
 hi link VisualNOS Visual
 hi link String Constant	
 hi link Character	Constant

@@ -4115,13 +4115,17 @@ function! s:handleLeftClick()
         let line = split(getline(line(".")), '\zs')
         let startToCur = ""
         for i in range(0,virtcol(".")-1)
-            let startToCur .= line[i]
+           try
+             let startToCur .= line[i]
+               catch
+                  call s:echoWarning("You Must Click a Link")
+           endtry       
         endfor
 
         if currentNode.path.isDirectory
             if startToCur =~# s:tree_markup_reg && startToCur =~# '[+~▾▸] \?$'
                 call currentNode.activate()
-                return
+               return 
             endif
         endif
 
