@@ -16,6 +16,7 @@
 		set backspace=indent,eol,start
 		set clipboard=autoselect,exclude:cons\\\|linux
 		set columns=120
+		set expandtab
 		set fillchars+=vert:\~,stl:\ ,stlnc:\    
 		set foldmethod=indent
 		set nofoldenable
@@ -28,6 +29,7 @@
 		set hlsearch
 		set incsearch
 		set linebreak
+		set linespace=1
 		set number
 		set numberwidth=4
 		set ruler
@@ -40,7 +42,7 @@
 		set splitright
 		set scrolloff=2
 		set statusline=%<%F\ %m%r\ %=\ %y%{&ff}\ line:%l\ col:%c\ \   
-		set tabstop=4
+		set tabstop=8
 		set visualbell
 		set wildmenu
 		set wildmode=list:longest,full
@@ -160,6 +162,7 @@
 	autocmd FileType html set omnifunc=htmlcomplete#Complete
 	autocmd BufWinLeave *.* mkview!
 	autocmd BufWinEnter *.* silent loadview
+	autocmd BufWinEnter *.* stopi
 	autocmd Vimenter * NERDTree
 	autocmd Vimenter * wincmd l
 	autocmd WinEnter * call s:IfNoBuffers()
