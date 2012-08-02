@@ -56,7 +56,7 @@ hi Field	gui=italic guibg=#171717 guifg=#009900
 "hi diffCommon		Constant
 hi diffDelete	guibg=#242d42	guifg=Red
 "hi diffText		gui=underline,bold guibg=#242d42 guifg=#EEEE00
-hi diffText		gui=underline guibg=#242d42 guifg=Yellow
+hi diffText		cterm=underline gui=underline,bold ctermfg=Yellow guifg=Yellow guibg=#242d42 
 "hi diffChange		guibg=#36648B
 hi diffChange		guibg=#242d42 guifg=#777777
 "hi diffChanged		guibg=#003587
