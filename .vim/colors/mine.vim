@@ -12,17 +12,17 @@ endif
 
 let g:colors_name = "mine"
 
-hi Normal	guifg=#EBEBEB gui=bold guibg=#010101
+hi Normal	ctermbg=NONE guifg=#EBEBEB  gui=bold guibg=#010101 
 hi Title 	guifg=#50A6C2
-hi Comment	term=bold		ctermfg=DarkCyan		guifg=#80a0ff
+hi Comment	term=bold		ctermfg=DarkGrey		guifg=#80a0ff
 hi Constant	term=underline	ctermfg=Magenta		guifg=Magenta
-hi Special	term=bold		ctermfg=DarkMagenta	guifg=Red
+hi Special	term=bold		ctermfg=Magenta	guifg=Red
 hi Identifier term=underline	cterm=bold			ctermfg=Cyan guifg=#40ffff
 hi Statement ctermfg=Cyan 	guifg=#CCF0FF
 hi PreProc	term=underline	ctermfg=LightBlue	guifg=#ff80ff
 hi Type	term=underline		ctermfg=Cyan	guifg=Cyan gui=bold
-hi Function	term=bold		ctermfg=White guifg=White
-hi Repeat	term=underline	ctermfg=White		guifg=white
+hi Function	cterm=NONE guifg=White
+hi Repeat	term=underline guifg=white
 hi Operator				ctermfg=Red			guifg=Red
 hi Ignore				ctermfg=black		guifg=#0F0F0F
 hi Error	term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
@@ -35,8 +35,8 @@ hi CursorColumn ctermfg=Magenta
 hi Folded	guibg=#171717	guifg=#707070 gui=italic
 hi FoldColumn guibg=#010101 guifg=#707070
 hi NonText	guibg=#010101   guifg=#003366 gui=italic
-hi Visual	guibg=#003366	guifg=Cyan 
-hi Cursor 	guibg=LightCyan	gui=bold
+hi Visual	ctermbg=DarkBlue ctermfg=Cyan guibg=#003366	guifg=Cyan 
+hi Cursor 	term=bold ctermbg=LightCyan  guibg=LightCyan	gui=bold
 hi StatusLine gui=bold guibg=#171717 guifg=#50A6C2
 hi StatusLineNC gui=bold guibg=#171717 guifg=#777777	 
 hi VertSplit gui=italic guibg=#171717	guifg=#003366

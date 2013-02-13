@@ -1,13 +1,10 @@
 " Vim syntax file
 " Language:	Groovy
-" Original Author:	Alessio Pace <billy.corgan@tiscali.it>
-" Maintainer:	Tobias Rapp <yahuxo@gmx.de>
-" Version: 	0.1.10
+" Maintainer:	Alessio Pace <billy.corgan@tiscali.it>
+" Version: 	0.1.9b
 " URL:	  http://www.vim.org/scripts/script.php?script_id=945	
-" Last Change:	2010 Nov 29
+" Last Change:	6/4/2004
 
-" THE ORIGINAL AUTHOR'S NOTES:
-"
 " This is my very first vim script, I hope to have
 " done it the right way.
 " 
@@ -19,7 +16,8 @@
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
 "
-" HOWTO USE IT (INSTALL) when not part of the distribution:
+" HOWTO USE IT (INSTALL):
+" [groovy is still not recognized by vim! :-( ]
 "
 " 1) copy the file in the (global or user's $HOME/.vim/syntax/) syntax folder
 " 
@@ -71,7 +69,7 @@ endif
 
 " keyword definitions
 syn keyword groovyExternal        native package
-syn match groovyExternal          "\<import\s\+\(static\>\)\?"
+syn match groovyExternal          "\<import\(\s\+static\>\)\?"
 syn keyword groovyError           goto const
 syn keyword groovyConditional     if else switch
 syn keyword groovyRepeat          while for do
@@ -96,7 +94,6 @@ syn match   groovyClassDecl       "[^.]\s*\<class\>"ms=s+1
 syn keyword groovyBranch          break continue nextgroup=groovyUserLabelRef skipwhite
 syn match   groovyUserLabelRef    "\k\+" contained
 syn keyword groovyScopeDecl       public protected private abstract
-syn match   groovyASTAnnotation   "@\(Bindable\|Vetoable\|Category\|Mixin\|Delegate\|Immutable\|Lazy\|Newify\|Singleton\)"
 
 
 if exists("groovy_highlight_groovy_lang_ids") || exists("groovy_highlight_groovy_lang") || exists("groovy_highlight_all")
@@ -200,7 +197,7 @@ if !exists("groovy_allow_cpp_keywords")
 endif
 
 " The following cluster contains all groovy groups except the contained ones
-syn cluster groovyTop add=groovyExternal,groovyError,groovyError,groovyBranch,groovyLabelRegion,groovyLabel,groovyConditional,groovyRepeat,groovyBoolean,groovyConstant,groovyTypedef,groovyOperator,groovyType,groovyType,groovyStatement,groovyStorageClass,groovyAssert,groovyExceptions,groovyMethodDecl,groovyClassDecl,groovyClassDecl,groovyClassDecl,groovyScopeDecl,groovyError,groovyError2,groovyUserLabel,groovyLangObject,groovyASTAnnotation
+syn cluster groovyTop add=groovyExternal,groovyError,groovyError,groovyBranch,groovyLabelRegion,groovyLabel,groovyConditional,groovyRepeat,groovyBoolean,groovyConstant,groovyTypedef,groovyOperator,groovyType,groovyType,groovyStatement,groovyStorageClass,groovyAssert,groovyExceptions,groovyMethodDecl,groovyClassDecl,groovyClassDecl,groovyClassDecl,groovyScopeDecl,groovyError,groovyError2,groovyUserLabel,groovyLangObject
 
 
 " Comments
@@ -250,9 +247,7 @@ syn match   groovySpecialError     contained "\\."
 syn match   groovySpecialCharError contained "[^']"
 syn match   groovySpecialChar      contained "\\\([4-9]\d\|[0-3]\d\d\|[\"\\'ntbrf]\|u\x\{4\}\)"
 syn region  groovyString          start=+"+ end=+"+ end=+$+ contains=groovySpecialChar,groovySpecialError,@Spell,groovyELExpr
-syn region  groovyString          start=+'+ end=+'+ end=+$+ contains=groovySpecialChar,groovySpecialError,@Spell
-syn region  groovyString          start=+"""+ end=+"""+ contains=groovySpecialChar,groovySpecialError,@Spell,groovyELExpr
-syn region  groovyString          start=+'''+ end=+'''+ contains=groovySpecialChar,groovySpecialError,@Spell
+syn region  groovyString          start=+'+ end=+'+ end=+$+ contains=groovySpecialChar,groovySpecialError,@Spell,groovyELExpr
 " syn region groovyELExpr start=+${+ end=+}+ keepend contained
  syn match groovyELExpr /\${.\{-}}/ contained
 GroovyHiLink groovyELExpr Identifier
@@ -441,7 +436,6 @@ if version >= 508 || !exists("did_groovy_syn_inits")
   GroovyHiLink groovyJDKBuiltin         Special
   GroovyHiLink groovyJDKOperOverl       Operator
   GroovyHiLink groovyJDKMethods         Function
-  GroovyHiLink groovyASTAnnotation      PreProc
 endif
 
 delcommand GroovyHiLink
